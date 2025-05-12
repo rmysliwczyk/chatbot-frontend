@@ -20,6 +20,7 @@ body {
 
 #message-history-container {
     width: 30%;
+    min-width: 250px;
     margin: auto;
     padding: 10px;
     text-align: center;
@@ -52,4 +53,10 @@ input[type=submit]:active {
     color: white;
     border: none;
     padding: 10px;
+}
+
+input[type=text], input[type=password] {
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 100%;
 }
