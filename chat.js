@@ -10,7 +10,7 @@ async function chat(messages) {
     })
 
     if(response.status == "401") {
-        throw new Error("User not logged in.")
+        throw new Error("User not logged in", {cause: "not_logged_in"} )
     }
 
     const jsonData = await response.json();
@@ -51,7 +51,12 @@ document.addEventListener("DOMContentLoaded", function() {
             
                 document.querySelector('#content').value = "";
             } catch (error) {
-                window.location.assign("/index.html");
+                if(error.cause == "not_logged_in") {
+                    window.location.assign("/index.html")
+                }
+                else {
+                    console.log(error);
+                }
             }
         });
     }
