@@ -1,0 +1,29 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+#login-form-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#chat-form-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#message-history-container {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+#message-history-container div {
+    margin-top: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    padding: 20px;
+}
