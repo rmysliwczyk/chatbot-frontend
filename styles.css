@@ -33,9 +33,23 @@ body {
 }
 
 input[type=submit] {
-    background-color: darkolivegreen;
+    background-color: rgb(85, 107, 47);
     color: white;
     border: none;
     padding: 10px;
 
+}
+
+input[type=submit]:hover {
+    background-color: rgb(115, 148, 58);
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+input[type=submit]:active {
+    background-color: rgb(86, 144, 95);
+    color: white;
+    border: none;
+    padding: 10px;
 }
