@@ -25,6 +25,7 @@ async function displayMessages(messages) {
         newMessage.innerHTML = message.content;
         messageHistoryDiv.append(newMessage);
     }
+    window.scrollTo(0, document.body.scrollHeight);
 }
 
 let messageHistory = [];
@@ -44,12 +45,12 @@ document.addEventListener("DOMContentLoaded", function() {
             messageHistory.push(message);
             displayMessages([...messageHistory, { "role": "waiting", "content": "Generating response..."}]);
             try {
+                document.querySelector('#content').value = "";
                 const responseMessage = await chat(messageHistory);
 
                 messageHistory.push(responseMessage);
                 displayMessages(messageHistory);
             
-                document.querySelector('#content').value = "";
             } catch (error) {
                 if(error.cause == "not_logged_in") {
                     window.location.assign("/index.html")

@@ -8,6 +8,10 @@ body {
     text-align: center;
 }
 
+#login-form-container div, #chat-form-container div {
+    margin-top: 10px;
+}
+
 #chat-form-container {
     width: 50%;
     margin: auto;
@@ -15,7 +19,7 @@ body {
 }
 
 #message-history-container {
-    width: 50%;
+    width: 30%;
     margin: auto;
     padding: 10px;
     text-align: center;
@@ -26,4 +30,12 @@ body {
     border: 1px solid lightgrey;
     border-radius: 2px;
     padding: 20px;
+}
+
+input[type=submit] {
+    background-color: darkolivegreen;
+    color: white;
+    border: none;
+    padding: 10px;
+
 }
