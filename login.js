@@ -7,8 +7,12 @@ async function obtainLoginToken(username, password) {
         body: new URLSearchParams({username: username, password: password})
     })
 
-    const jsonData = await response.json();
-    window.sessionStorage.setItem("token", jsonData.access_token)
+    if(response.ok) {
+        const jsonData = await response.json();
+        window.sessionStorage.setItem("token", jsonData.access_token);
+    } else {
+        throw new Error(`${response.status} ${response.statusText}`);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -18,7 +22,14 @@ document.addEventListener("DOMContentLoaded", function() {
         const username = document.querySelector('#username').value;
         const password = document.querySelector('#password').value;
 
-        await obtainLoginToken(username, password);
-        window.location.assign("/chat.html");
+        try {
+            await obtainLoginToken(username, password);
+            window.location.assign("/chat.html");
+        } catch(error) {
+            const alertMessageDiv = document.createElement("div");
+            alertMessageDiv.style = "color: white; background: #f66151; padding: 5px; border-radius: 5px";
+            alertMessageDiv.innerHTML = `Couldn't log you in. ${error}`;
+            document.querySelector("#login-form-container").append(alertMessageDiv);
+        }
     });
 })
